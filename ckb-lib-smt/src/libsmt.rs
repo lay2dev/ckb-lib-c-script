@@ -4,7 +4,7 @@ use ckb_std::{
     dynamic_loading_c_impl::{CKBDLContext, Symbol},
 };
 
-const CKB_SMT_VEIRFY: &[u8; 14] = b"ckb_smt_verify";
+const CKB_SMT_VERIFY: &[u8; 14] = b"ckb_smt_verify";
 type CKBSmtVerify = unsafe extern "C" fn(
     old_root: *const u8,
     smt_pair_len: u32,
@@ -24,7 +24,7 @@ impl LibCKBSmt {
             .load(&crate::code_hashes::CODE_HASH_CKB_SMT)
             .expect("load ckb_smt");
 
-        let smt_verify = unsafe { lib.get(CKB_SMT_VEIRFY).expect("load function") };
+        let smt_verify = unsafe { lib.get(CKB_SMT_VERIFY).expect("load function") };
         LibCKBSmt { smt_verify }
     }
 

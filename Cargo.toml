@@ -1,2 +1,6 @@
 [workspace]
-members = ["ckb-lib-rsa","ckb-lib-secp256k1","ckb-lib-smt"]
+members = [
+    "ckb-lib-rsa",
+    "ckb-lib-secp256k1",
+    "ckb-lib-smt",
+    ]

@@ -1,20 +1,20 @@
+cfg_if::cfg_if! {
+    if #[cfg(feature(no_std, static_lib))]  {
+        extern crate alloc;
 
-#![no_std]
-#[cfg(all(feature = "c_file", feature = "no_std"))]
-compile_error!("feature \"no_std\" and feature \"c_file\" cannot be enabled at the same time");
-#[cfg(feature = "no_std")]
-extern crate alloc;
+        mod libsmt_static;
+        pub use libsmt_static::*;
+    } else if #[cfg(feature(no_std, dynamic_lib))]  {
+        extern crate alloc;
 
-mod code_hashes;
-#[cfg(feature = "no_std")]
-mod libsmt;
+        mod code_hashes;
+        pub use code_hashes::CODE_HASH_CKB_SMT;
 
-pub use code_hashes::CODE_HASH_CKB_SMT;
-#[cfg(feature = "no_std")]
-pub use libsmt::*;
-
-
-#[cfg(feature = "c_file")]
-pub fn get_libsmt_bin() -> &'static [u8] {
-    include_bytes!("../lib/ckb_smt")
+        mod libsmt_dynamic;
+        pub use libsmt_dynamic::*;
+    } else {
+        pub fn get_libsmt_bin() -> &'static [u8] {
+            include_bytes!("../lib/ckb_smt")
+        }
+    }
 }

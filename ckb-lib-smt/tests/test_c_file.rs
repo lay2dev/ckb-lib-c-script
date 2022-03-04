@@ -1,5 +1,3 @@
-#[cfg(feature = "c_file")]
-#[cfg(not(feature = "default"))]
 mod test_c_file {
     use ckb_lib_smt::get_libsmt_bin;
 

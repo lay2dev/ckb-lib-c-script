@@ -1,10 +1,10 @@
 cfg_if::cfg_if! {
-    if #[cfg(feature(no_std, static_lib))]  {
+    if #[cfg(features = "static_lib")]  {
         extern crate alloc;
 
         mod libsmt_static;
         pub use libsmt_static::*;
-    } else if #[cfg(feature(no_std, dynamic_lib))]  {
+    } else if #[cfg(features = "dynamic_lib")]  {
         extern crate alloc;
 
         mod code_hashes;

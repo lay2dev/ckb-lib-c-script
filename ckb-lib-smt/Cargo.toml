@@ -10,11 +10,10 @@ cfg-if = "1.0"
 ckb-std = { version = "0.9", optional = true }
 
 [build-dependencies]
+cfg-if = "1.0"
 blake2b-rs = "0.2"
 cc = "1.0"
 
 [features]
-default = ["no_std", "static_lib"]
-no_std = ["ckb-std"]
-static_lib = []
-dynamic_lib = []
+static_lib = ["ckb-std"]
+dynamic_lib = ["ckb-std"]

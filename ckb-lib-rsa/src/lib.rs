@@ -11,17 +11,16 @@ pub mod email_rs {
 }
 
 cfg_if::cfg_if! {
-    if #[cfg(feature(no_std, static_lib))]  {
+    if #[cfg(feature = "static_lib" )]  {
         extern crate alloc;
 
         mod librsa_static;
         pub use librsa_static::*;
-    } else if #[cfg(feature(no_std, dynamic_lib))]  {
+    } else if #[cfg(feature = "dynamic_lib")]  {
         extern crate alloc;
         
         mod code_hashes;
         pub use code_hashes::CODE_HASH_RSA;
-
         mod librsa_dynamic;
         pub use librsa_dynamic::*;
     } else {

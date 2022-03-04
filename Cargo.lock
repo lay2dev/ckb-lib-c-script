@@ -10,15 +10,6 @@ checksum = "3441f0f7b02788e948e47f457ca01f1d7e6d92c693bc132c22b087d3141c03ff"
 
 [[package]]
 name = "blake2b-rs"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6e35e362830ef90ecea16f09b21b75d22d33a8562a679c74ab4f4fa49b4fcb87"
-dependencies = [
- "cc",
-]
-
-[[package]]
-name = "blake2b-rs"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a89a8565807f21b913288968e391819e7f9b2f0f46c7b89549c051cccf3a2771"
@@ -58,7 +49,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 name = "ckb-lib-rsa"
 version = "0.3.0"
 dependencies = [
- "blake2b-rs 0.1.5",
+ "blake2b-rs",
  "cfg-if",
  "ckb-std",
  "email-rs",
@@ -69,7 +60,7 @@ dependencies = [
 name = "ckb-lib-secp256k1"
 version = "0.1.0"
 dependencies = [
- "blake2b-rs 0.1.5",
+ "blake2b-rs",
  "cfg-if",
  "ckb-std",
 ]
@@ -78,7 +69,7 @@ dependencies = [
 name = "ckb-lib-smt"
 version = "0.3.0"
 dependencies = [
- "blake2b-rs 0.2.0",
+ "blake2b-rs",
  "cc",
  "cfg-if",
  "ckb-std",
